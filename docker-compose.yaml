@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  pokemon-frontend:
+    container_name: pokemon-names_pokemon-frontend
+    image: abaseen/pokemon-frontend
+    build: ./service_1
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+    environment:
+      DATABASE_URI: ${DATABASE_URI}
+  pokemon-backend:
+    container_name: pokemon-names_pokemon-backend
+    image: abaseen/pokemon-backend
+    build: ./service_2
+  pokemon-backend3:
+    container_name: pokemon-psa_pokemon-backend3
+    image: abaseen/pokemon-backend3
+    build: ./service_3
+  pokemon-backend4:
+    container_name: pokemon-eva_pokemon-backend4
+    image: abaseen/pokemon-backend4
+    build: ./service_4
