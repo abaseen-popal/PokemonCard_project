@@ -13,40 +13,42 @@ pipeline{
                 sh "bash jenkins/test.sh"
             }
         }
-        stage("Build & Push"){
-            steps{
-                // install docker and docker-compose
-                // add jenkins to docker group
-                // sudo su - jenkins, docker login
-                // docker-compose build and push
-                sh "bash jenkins/build_images.sh"
-                sh "docker-compose build && docker-compose push"
-            }
-        }
-        stage("Config Management (ansible)"){
-            steps{
-                // write out playbook, inventory
-                // with roles
-                // ssh keys generated from jenkins machine for jenkins user (ssh-keygen)
-                // sudo su - jenkins, install ansible on this machine for jenkins
-                // jenkins runs playbook
-                sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
-            }
-        }
-        stage("Deploy"){
-            steps{
-                // copy docker-compose.yaml over ssh (scp command)
-                // set env variables on swarm manager
-                // ssh into swarm manager to deploy the stack
-                sh "echo 'skip' "
-            }
-        }
-    }
-    post{
-        always{
-            junit "**/junit.xml"
-            cobertura coberturaReportFile: '**/coverage.xml', failNoReports: false, failUnstable: false, onlyStable: false
-        }
     }
 }
+    //     stage("Build & Push"){
+    //         steps{
+    //             // install docker and docker-compose
+    //             // add jenkins to docker group
+    //             // sudo su - jenkins, docker login
+    //             // docker-compose build and push
+    //             sh "bash jenkins/build_images.sh"
+    //             sh "docker-compose build && docker-compose push"
+    //         }
+    //     }
+    //     stage("Config Management (ansible)"){
+    //         steps{
+    //             // write out playbook, inventory
+    //             // with roles
+    //             // ssh keys generated from jenkins machine for jenkins user (ssh-keygen)
+    //             // sudo su - jenkins, install ansible on this machine for jenkins
+    //             // jenkins runs playbook
+    //             sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
+    //         }
+    //     }
+    //     stage("Deploy"){
+    //         steps{
+    //             // copy docker-compose.yaml over ssh (scp command)
+    //             // set env variables on swarm manager
+    //             // ssh into swarm manager to deploy the stack
+    //             sh "echo 'skip' "
+    //         }
+    //     }
+    // }
+    // post{
+    //     always{
+    //         junit "**/junit.xml"
+    //         cobertura coberturaReportFile: '**/coverage.xml', failNoReports: false, failUnstable: false, onlyStable: false
+    //     }
+    // }
+
 
