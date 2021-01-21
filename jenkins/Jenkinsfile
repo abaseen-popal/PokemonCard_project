@@ -3,7 +3,7 @@ pipeline{
     environment{
         DATABASE_URI = credentials("DATABASE_URI")
         AUTHOR = credentials("AUTHOR")
-        DOCKPW = credentials("DOCKPW")
+        // DOCKPW = credentials("DOCKPW")
     }
     stages{
         stage("Testing"){
