@@ -10,7 +10,7 @@ pipeline{
             steps{
                 // write tests for each service
                 // pytest on each service
-                sh "bash jenkins/jenkins/test.sh"
+                sh "bash jenkins/test.sh"
             }
         }
         stage("Build & Push"){
@@ -38,6 +38,7 @@ pipeline{
                 // copy docker-compose.yaml over ssh (scp command)
                 // set env variables on swarm manager
                 // ssh into swarm manager to deploy the stack
+                sh "echo 'skip' "
             }
         }
     }
