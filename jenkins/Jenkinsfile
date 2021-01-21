@@ -10,7 +10,7 @@ pipeline{
             steps{
                 // write tests for each service
                 // pytest on each service
-                sh "bash jenkins/test.sh"
+                sh "bash jenkins/jenkins/test.sh"
             }
         }
         stage("Build & Push"){
