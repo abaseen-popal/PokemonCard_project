@@ -13,21 +13,21 @@ pipeline{
                 sh "bash jenkins/test.sh"
             }
         }
+        stage("Build & Push"){
+            steps{
+                // install docker and docker-compose
+                // add jenkins to docker group
+                // sudo su - jenkins, docker login
+                // docker-compose build and push
+                sh "bash jenkins/build_images.sh"
+                // sh "docker-compose build && docker-compose push"
+            }
     }
+}
     post{
         always{
             junit "**/junit.xml"
             cobertura coberturaReportFile: '**/coverage.xml', failNoReports: false, failUnstable: false, onlyStable: false
-        }
-    }
-    stage("Build & Push"){
-        steps{
-            // install docker and docker-compose
-            // add jenkins to docker group
-            // sudo su - jenkins, docker login
-            // docker-compose build and push
-            sh "bash jenkins/build_images.sh"
-            // sh "docker-compose build && docker-compose push"
         }
     }
 }
