@@ -8,7 +8,7 @@ services:
         replicas: 5
     ports:
     - target: 5000
-      published: 5000
+      published: 80
       protocol: tcp
     environment:
       DATABASE_URI: ${DATABASE_URI}
@@ -18,24 +18,15 @@ services:
     build: ./service_2
     deploy:
         replicas: 5
-    ports:
-    - target: 5001
-      published: 5001
   pokemon-backend3:
     container_name: pokemon-psa_pokemon-backend3
     image: ${AUTHOR}/pokemon-backend3
     build: ./service_3
     deploy:
         replicas: 5
-    ports:
-    - target: 5002
-      published: 5002
   pokemon-backend4:
     container_name: pokemon-eva_pokemon-backend4
     image: ${AUTHOR}/pokemon-backend4
     build: ./service_4
     deploy:
         replicas: 5
-    ports:
-    - target: 5003
-      published: 5003
