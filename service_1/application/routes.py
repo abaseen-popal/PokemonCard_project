@@ -7,9 +7,9 @@ from flask import render_template, request
 
 @app.route('/')
 def index():
-    pokemon_response = requests.get("http://pokemon-names_pokemon-backend:5000/pokemon")
-    psa_response = requests.get("http://pokemon-psa_pokemon-backend3:5000/psa")
-    evaluation_response = requests.post("http://pokemon-eva_pokemon-backend4:5000/evaluation", json={"pokemon":pokemon_response.text,"psa": psa_response.text })
+    pokemon_response = requests.get("http://pokemon-stack_pokemon-backend:5000/pokemon")
+    psa_response = requests.get("http://pokemon-stack_pokemon-backend3:5000/psa")
+    evaluation_response = requests.post("http://pokemon-stack_pokemon-backend4:5000/evaluation", json={"pokemon":pokemon_response.text,"psa": psa_response.text })
     
     
     new_pokemon = Pokemons(pokemon_name=pokemon_response.text, pokemon_psa=psa_response.text,pokemon_evaluation=evaluation_response.text)
