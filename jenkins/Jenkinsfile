@@ -33,6 +33,14 @@ pipeline{
                 sh "bash jenkins/ansible_init.sh"
             }
         }
+        stage("Deploy"){
+            steps{
+                // copy docker-compose.yaml over ssh (scp command)
+                // set env variables on swarm manager
+                // ssh into swarm manager to deploy the stack
+                sh "bash jenkins/deploy_stack.sh"
+            }
+        }
 }
     post{
         always{
@@ -41,15 +49,5 @@ pipeline{
         }
     }
 }
-
-    //     stage("Deploy"){
-    //         steps{
-    //             // copy docker-compose.yaml over ssh (scp command)
-    //             // set env variables on swarm manager
-    //             // ssh into swarm manager to deploy the stack
-    //             sh "echo 'skip' "
-    //         }
-    //     }
-    // }
 
 
