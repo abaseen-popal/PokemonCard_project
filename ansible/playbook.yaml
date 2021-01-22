@@ -11,4 +11,8 @@
   - docker
   - swarm-worker
 
+- hosts: nginx
+  become: true
+  roles: 
+  - nginx
 
