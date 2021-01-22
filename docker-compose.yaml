@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   pokemon-frontend:
-    container_name: pokemon-names_pokemon-frontend
+    container_name: pokemon-stack_pokemon-frontend
     image: ${AUTHOR}/pokemon-frontend:latest
     build: ./service_1
     deploy:
@@ -13,19 +13,19 @@ services:
     environment:
       DATABASE_URI: ${DATABASE_URI}
   pokemon-backend:
-    container_name: pokemon-names_pokemon-backend
+    container_name: pokemon-stack_pokemon-backend
     image: ${AUTHOR}/pokemon-backend:latest
     build: ./service_2
     deploy:
       replicas: 5
   pokemon-backend3:
-    container_name: pokemon-psa_pokemon-backend3
+    container_name: pokemon-stack_pokemon-backend3
     image: ${AUTHOR}/pokemon-backend3:latest
     build: ./service_3
     deploy:
       replicas: 5
   pokemon-backend4:
-    container_name: pokemon-eva_pokemon-backend4
+    container_name: pokemon-stack_pokemon-backend4
     image: ${AUTHOR}/pokemon-backend4:latest
     build: ./service_4
     deploy:
