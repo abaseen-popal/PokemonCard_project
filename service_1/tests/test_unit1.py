@@ -19,7 +19,7 @@ class TestBase(TestCase):
         db.session.remove()
         db.drop_all()
         
-
+# mocking the response from other services to ensure that the hompepage is showing the related information 
 class TestResponse(TestBase):
     def test_pika(self):
         with requests_mock.mock() as m:

@@ -1,3 +1,5 @@
+# This main.yaml file creates the nginx in a virtual machine to act as a load balancer 
+
 - name: 'download and install git & nginx using apt'
   apt:
     pkg:

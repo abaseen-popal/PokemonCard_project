@@ -1,3 +1,4 @@
+# The main yaml file is used for installing docker and its dependencies into different machines 
 - name: Install docker dependencies
   apt:
     state: latest
@@ -27,12 +28,3 @@
 - name: Install Docker Module for Python
   pip:
     name: docker
-
-# - name: Install docker-ce
-#   apt:
-#     state: latest
-#     update_cache: true
-#     pkg:
-#     - docker-ce
-#     - docker-ce-cli
-#     - containerd.io

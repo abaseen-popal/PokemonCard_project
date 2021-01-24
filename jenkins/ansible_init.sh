@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# This script is used to install ansible and run the playbook created in the nasible folder 
 mkdir -p ~/.local/bin
 echo 'PATH=$PATH:~/.local/bin' >> ~/.bashrc
 source ~/.bashrc
