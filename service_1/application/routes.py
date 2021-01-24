@@ -16,7 +16,7 @@ def index():
     db.session.add(new_pokemon)
     db.session.commit()
     
-    all_pokemon = Pokemons.query.order_by(desc("id")).limit(10).all()
+    all_pokemon = Pokemons.query.order_by(desc("id")).limit(5).all()
     
     return render_template("index.html",pokemon=pokemon_response.text, psa=psa_response.text,all_pokemon=all_pokemon, evaluation=evaluation_response.text)
     
