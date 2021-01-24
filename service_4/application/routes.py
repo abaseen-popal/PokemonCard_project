@@ -133,4 +133,4 @@ def get_evaluation ():
         evaluation_value = 0
 
     # returning the string value of the allocated evaluation_value    
-    return Response(str(evaluation_value),mimetype='text/plain')
+    return Response(str(evaluation_value * 100),mimetype='text/plain')
