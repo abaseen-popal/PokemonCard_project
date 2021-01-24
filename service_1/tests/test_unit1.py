@@ -23,9 +23,9 @@ class TestBase(TestCase):
 class TestResponse(TestBase):
     def test_pika(self):
         with requests_mock.mock() as m:
-            m.get('http://pokemon-names_pokemon-backend:5000/pokemon', text = "Pikachu - Yellow (Lightning)")
-            m.get('http://pokemon-psa_pokemon-backend3:5000/psa',text = "10- Gem Mint - Pristine")
-            m.post("http://pokemon-eva_pokemon-backend4:5000/evaluation", json="5000")
+            m.get('http://pokemon-stack_pokemon-backend:5000/pokemon', text = "Pikachu - Yellow (Lightning)")
+            m.get('http://pokemon-stack_pokemon-backend3:5000/psa',text = "10- Gem Mint - Pristine")
+            m.post("http://pokemon-stack_pokemon-backend4:5000/evaluation", json="5000")
             response = self.client.get(url_for('index'))
             self.assertIn(b"Pikachu - Yellow (Lightning)", response.data)
             self.assertIn(b"10- Gem Mint - Pristine", response.data)
