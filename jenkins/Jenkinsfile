@@ -1,3 +1,5 @@
+// Creating the jenkins pipeline which will run scripts created within the jenkins folder. This is a substitue
+// for the of the jenkins GUI for scripts 
 pipeline{
     agent any
     environment{
@@ -44,6 +46,7 @@ pipeline{
 }
     post{
         always{
+            // junit is used to collect the result into present in a graphical manner 
             junit "**/junit.xml"
             cobertura coberturaReportFile: '**/coverage.xml', failNoReports: false, failUnstable: false, onlyStable: false
         }

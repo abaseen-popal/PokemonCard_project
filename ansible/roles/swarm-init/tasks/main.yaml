@@ -1,3 +1,4 @@
+# this file is used to create a swarm manager by initialising a swarm manager in a vm 
 - name: Add Jenkins User
   user: 
     name: jenkins

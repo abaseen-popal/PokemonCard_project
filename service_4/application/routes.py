@@ -31,7 +31,7 @@ def get_evaluation ():
     if card_info["pokemon"] == "Pikachu - Yellow (Lightning)" and card_info["psa"] == "0- Destroyed":
         evaluation_value = 0
 
-# ------If statements to check the worth of the pokemon cards------
+    # ------If statements to check the worth of the pokemon cards------
 
     if card_info["pokemon"] == "Charizard - Red (Fire)" and card_info["psa"] == "10- Gem Mint - Pristine":
         evaluation_value = 35000
@@ -82,6 +82,7 @@ def get_evaluation ():
         evaluation_value = 0
 
 # ------If statements to check the worth of the pokemon cards------
+
 
     if card_info["pokemon"] == "Venusaur - Green (Grass)" and card_info["psa"] == "10- Gem Mint - Pristine":
         evaluation_value = 20000

@@ -1,3 +1,4 @@
+# The file is used to join workers into a swarm 
 - name: Join the awarm as a worker 
   community.general.docker_swarm:
     state: join

@@ -1,3 +1,5 @@
+# Within the container i am exposing port 5000, installing the requirements and running it 
+
 FROM python:latest
 
 COPY . .
