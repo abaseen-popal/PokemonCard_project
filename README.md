@@ -1,4 +1,3 @@
-ldflajfolasjd
 # Pokemon Card Evaluation Web App
 ## Contents
 * [Brief](#brief)
