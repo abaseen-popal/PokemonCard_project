@@ -16,7 +16,6 @@
 * [Acknowledgements](#acknowledgements)
 
 
-
 ## Brief
 
  We have been asked to create an application with the overall objective of having CRUD application with the utilisation of supporting tools, methodologies and technologies which uses the modules that we have covered during the training to creat a CI/CD pipeline. 
