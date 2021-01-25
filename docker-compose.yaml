@@ -1,0 +1,34 @@
+# the docker compose file is used to run the containers and services with their images aswell. 
+# The databse uri is also inserted with also the docker hub username
+version: "3.8"
+services:
+  pokemon-frontend:
+    container_name: pokemon-stack_pokemon-frontend
+    image: ${AUTHOR}/pokemon-frontend:latest
+    build: ./service_1
+    deploy:
+      replicas: 5
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+    environment:
+      DATABASE_URI: ${DATABASE_URI}
+  pokemon-backend:
+    container_name: pokemon-stack_pokemon-backend
+    image: ${AUTHOR}/pokemon-backend:latest
+    build: ./service_2
+    deploy:
+      replicas: 5
+  pokemon-backend3:
+    container_name: pokemon-stack_pokemon-backend3
+    image: ${AUTHOR}/pokemon-backend3:latest
+    build: ./service_3
+    deploy:
+      replicas: 5
+  pokemon-backend4:
+    container_name: pokemon-stack_pokemon-backend4
+    image: ${AUTHOR}/pokemon-backend4:latest
+    build: ./service_4
+    deploy:
+      replicas: 5

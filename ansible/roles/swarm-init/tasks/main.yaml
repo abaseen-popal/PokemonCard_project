@@ -1,0 +1,13 @@
+# this file is used to create a swarm manager by initialising a swarm manager in a vm 
+- name: Add Jenkins User
+  user: 
+    name: jenkins
+    groups: docker
+    shell: /bin/bash
+    append: true
+- name: Init a new swarm with default parameters 
+  community.general.docker_swarm:
+    state: present
+- name: Get the worker node join token
+  community.general.docker_swarm:
+  register: swarm_info 

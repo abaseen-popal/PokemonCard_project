@@ -1,0 +1,56 @@
+// Creating the jenkins pipeline which will run scripts created within the jenkins folder. This is a substitue
+// for the of the jenkins GUI for scripts 
+pipeline{
+    agent any
+    environment{
+        DATABASE_URI = credentials("DATABASE_URI")
+        AUTHOR = credentials("AUTHOR")
+        replicas = 5
+    }
+    stages{
+        stage("Testing"){
+            steps{
+                // write tests for each service
+                // pytest on each service
+                sh "bash jenkins/test.sh"
+            }
+        }
+        stage("Build & Push"){
+            steps{
+                // install docker and docker-compose
+                // add jenkins to docker group
+                // sudo su - jenkins, docker login
+                // docker-compose build and push
+                sh "bash jenkins/build_images.sh"
+                // sh "docker-compose build && docker-compose push"
+            }
+    }
+        stage("Config Management (ansible)"){
+            steps{
+                // write out playbook, inventory
+                // with roles
+                // ssh keys generated from jenkins machine for jenkins user (ssh-keygen)
+                // sudo su - jenkins, install ansible on this machine for jenkins
+                // jenkins runs playbook
+                sh "bash jenkins/ansible_init.sh"
+            }
+        }
+        stage("Deploy"){
+            steps{
+                // copy docker-compose.yaml over ssh (scp command)
+                // set env variables on swarm manager
+                // ssh into swarm manager to deploy the stack
+                sh "bash jenkins/deploy_stack.sh"
+            }
+        }
+}
+    post{
+        always{
+            // junit is used to collect the result into present in a graphical manner 
+            junit "**/junit.xml"
+            cobertura coberturaReportFile: '**/coverage.xml', failNoReports: false, failUnstable: false, onlyStable: false
+        }
+    }
+}
+
+
